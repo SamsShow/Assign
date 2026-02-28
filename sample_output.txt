@@ -1,29 +1,33 @@
 ======================================================================
 DUPLICATE GROUP REPORT
-Total groups found: 38283
+Total groups found: 36170
 ======================================================================
 
-Group 1:
-  Primary: ID=106285, Label="Capgemini Consulting India Pvt Ltd"
-  Duplicate: ID=269532, Label="Capgemini Technology India Pvt Ltd", Score=1.000
-  Duplicate: ID=84506, Label="Capgemini India Private Limited", Score=1.000
-  Duplicate: ID=139612, Label="Capgemini Consulting India Pvt. Ltd.", Score=1.000
-  Duplicate: ID=143706, Label="Capgemini Technology Services India Limited", Score=1.000
-  Duplicate: ID=61166, Label="Capgemini India Services Ltd", Score=1.000
-  Duplicate: ID=190011, Label="Capgemini India Pvt Limited", Score=1.000
-  Duplicate: ID=133116, Label="Capgemini India Pvt. Ltd.", Score=1.000
-  Duplicate: ID=8478, Label="Capgemini India Pvt.Ltd", Score=1.000
-  Duplicate: ID=61055, Label="Capgemini India Pvt Ltd", Score=1.000
-  Duplicate: ID=202699, Label="Capgemini India Ltd.", Score=1.000
-  Duplicate: ID=221418, Label="Capgemini India Ltd", Score=1.000
-  Duplicate: ID=173423, Label="Capgemini Consulting India Private Ltd. ·", Score=1.000
-  Duplicate: ID=51248, Label="Capgemini Consulting, India", Score=1.000
-  Duplicate: ID=33652, Label="Capgemini India Pvt. Ltd. ·", Score=1.000
-  Duplicate: ID=139083, Label="Capgemini  India Pvt. Ltd.", Score=1.000
-  Duplicate: ID=25427, Label="Capgemini Consulting India", Score=1.000
-  Duplicate: ID=163142, Label="Capgemini India", Score=1.000
+(AI-validated groups: 14172 | Auto-confirmed: 21998)
 
-Group 2:
+Group 1 (AI-validated):
+  Primary: ID=346753, Label="Ronningen Research and Development Company"
+  Duplicate: ID=36309, Label="Ronningen Research & Development Co., Michigan, USA", Score=0.920, AI={"same_company": true, "confidence": 0.89, "reasoning": "Token containment (60%), score 0.920."}
+
+Group 2 (AI-validated):
+  Primary: ID=11377, Label="Nyanza Reproductive Health Society, Kenya- Africa"
+  Duplicate: ID=304945, Label="Nyanza Reproductive Health Society", Score=0.920, AI={"same_company": true, "confidence": 0.9, "reasoning": "Token containment (67%), score 0.920."}
+
+Group 3 (AI-validated):
+  Primary: ID=155405, Label="Meher Distributors Pvt. Ltd"
+  Duplicate: ID=5905, Label="Meher distributer pvt Ltd", Score=0.920, AI={"same_company": true, "confidence": 0.87, "reasoning": "High score (0.920), 50% token overlap."}
+  Duplicate: ID=359302, Label="MEHER DISTRIBUTORS", Score=1.000
+
+Group 4 (AI-validated):
+  Primary: ID=85744, Label="Palo Alto Networks"
+  Duplicate: ID=173968, Label="Palo auto network", Score=0.920, AI={"same_company": true, "confidence": 0.74, "reasoning": "Moderate score (0.920), 33% overlap."}
+
+Group 5 (AI-validated):
+  Primary: ID=98427, Label="Stallion Nigeria Limited"
+  Duplicate: ID=117284, Label="Stallion Group of Nigeria", Score=0.920, AI={"same_company": true, "confidence": 0.95, "reasoning": "Token containment (100%), score 0.920."}
+  Duplicate: ID=42058, Label="Stallion Group, Nigeria", Score=1.000
+
+Group 6:
   Primary: ID=155745, Label="MetLife India Insurance Co. Pvt. Ltd."
   Duplicate: ID=151299, Label="Metlife India Insurance Co. Pvt Ltd.", Score=1.000
   Duplicate: ID=119940, Label="MetLife India Insurance Pvt. Ltd.", Score=1.000
@@ -43,26 +47,7 @@ Group 2:
   Duplicate: ID=17353, Label="MetLife India Insurance Co", Score=1.000
   Duplicate: ID=211571, Label="MetLife India Insurance", Score=1.000
 
-Group 3:
-  Primary: ID=53283, Label="Datamatics Global Service Limited"
-  Duplicate: ID=63721, Label="Datamatics Global Services Ltd.", Score=1.000
-  Duplicate: ID=39820, Label="Datamatics Global Services Limited", Score=1.000
-  Duplicate: ID=48061, Label="Datamatics Technologies Limited", Score=1.000
-  Duplicate: ID=196573, Label="Datamatics Corporation", Score=1.000
-  Duplicate: ID=86353, Label="Datamatics Limited", Score=1.000
-  Duplicate: ID=192285, Label="Datamatics Ltd.", Score=1.000
-  Duplicate: ID=94270, Label="Datamatics Ltd", Score=1.000
-  Duplicate: ID=71875, Label="Datamatics global technologies", Score=1.000
-  Duplicate: ID=173585, Label="Datamatics Global Services", Score=1.000
-  Duplicate: ID=101074, Label="Datamatics Global Service", Score=1.000
-  Duplicate: ID=62512, Label="Datamatics Technologies", Score=1.000
-  Duplicate: ID=82274, Label="Datamatics Technology", Score=1.000
-  Duplicate: ID=102396, Label="Datamatics Solutions", Score=1.000
-  Duplicate: ID=216017, Label="Datamatics Group", Score=1.000
-  Duplicate: ID=73748, Label="Datamatics", Score=1.000
-  Duplicate: ID=77442, Label="DATAMATICS TECHNOLOGIES LTD", Score=1.000
-
-Group 4:
+Group 7:
   Primary: ID=25603, Label="Bharat Petroleum Corporation Ltd"
   Duplicate: ID=9318, Label="Bharat Petroleum Corporation Limited", Score=1.000
   Duplicate: ID=158955, Label="Bharat Petroleum Corporation Limited,", Score=1.000
@@ -80,7 +65,7 @@ Group 4:
   Duplicate: ID=226090, Label=", Bharat Petroleum Corporation Limited", Score=1.000
   Duplicate: ID=274206, Label=", Bharat Petroleum Corporation ", Score=1.000
 
-Group 5:
+Group 8:
   Primary: ID=133678, Label="Dr Reddys Laboratories Limited"
   Duplicate: ID=62807, Label="Dr.Reddys Laboratories Limited", Score=1.000
   Duplicate: ID=45060, Label="Dr. Reddys Laboratories Ltd.,", Score=1.000
@@ -98,24 +83,25 @@ Group 5:
   Duplicate: ID=60916, Label="Dr.Reddys Laboratories", Score=1.000
   Duplicate: ID=176694, Label="DR. REDDYS LABORATORIES LIMITED", Score=1.000
 
-Group 6:
-  Primary: ID=42946, Label="Convergys India Services Private Limited"
-  Duplicate: ID=90187, Label="Convergys (India) Services Pvt. Ltd.", Score=1.000
-  Duplicate: ID=47315, Label="Convergys India Services Pvt. Ltd", Score=1.000
-  Duplicate: ID=25371, Label="Convergys India Services Pvt Ltd.", Score=1.000
-  Duplicate: ID=202398, Label="Convergys India Services Pvt. Ltd.", Score=1.000
-  Duplicate: ID=350852, Label="Convergys India Services Ltd", Score=1.000
-  Duplicate: ID=210623, Label="Convergys Private Ltd, India", Score=1.000
-  Duplicate: ID=175594, Label="Convergys India Service Ltd", Score=1.000
-  Duplicate: ID=24728, Label="Convergys India Pvt. Ltd.", Score=1.000
-  Duplicate: ID=17084, Label="Convergys India Pvt. Ltd", Score=1.000
-  Duplicate: ID=5702, Label="Convergys India Pvt Ltd", Score=1.000
-  Duplicate: ID=212494, Label="Convergys India Limited", Score=1.000
-  Duplicate: ID=11564, Label="Convergys India Services", Score=1.000
-  Duplicate: ID=86540, Label="Convergys India", Score=1.000
-  Duplicate: ID=188224, Label="CONVERGYS INDIA SERVICES PVT LTD", Score=1.000
+Group 9:
+  Primary: ID=106285, Label="Capgemini Consulting India Pvt Ltd"
+  Duplicate: ID=269532, Label="Capgemini Technology India Pvt Ltd", Score=1.000
+  Duplicate: ID=139612, Label="Capgemini Consulting India Pvt. Ltd.", Score=1.000
+  Duplicate: ID=84506, Label="Capgemini India Private Limited", Score=1.000
+  Duplicate: ID=190011, Label="Capgemini India Pvt Limited", Score=1.000
+  Duplicate: ID=133116, Label="Capgemini India Pvt. Ltd.", Score=1.000
+  Duplicate: ID=8478, Label="Capgemini India Pvt.Ltd", Score=1.000
+  Duplicate: ID=61055, Label="Capgemini India Pvt Ltd", Score=1.000
+  Duplicate: ID=202699, Label="Capgemini India Ltd.", Score=1.000
+  Duplicate: ID=221418, Label="Capgemini India Ltd", Score=1.000
+  Duplicate: ID=173423, Label="Capgemini Consulting India Private Ltd. ·", Score=1.000
+  Duplicate: ID=51248, Label="Capgemini Consulting, India", Score=1.000
+  Duplicate: ID=33652, Label="Capgemini India Pvt. Ltd. ·", Score=1.000
+  Duplicate: ID=139083, Label="Capgemini  India Pvt. Ltd.", Score=1.000
+  Duplicate: ID=25427, Label="Capgemini Consulting India", Score=1.000
+  Duplicate: ID=163142, Label="Capgemini India", Score=1.000
 
-Group 7:
+Group 10:
   Primary: ID=142017, Label="Allied Blenders and Distillers Limited"
   Duplicate: ID=36936, Label="Allied Blenders & Distillers Pvt.Ltd", Score=1.000
   Duplicate: ID=150601, Label="Allied Blenders and Distillers Pvt Ltd", Score=1.000
@@ -130,7 +116,7 @@ Group 7:
   Duplicate: ID=50261, Label="Allied Blenders & Distillers", Score=1.000
   Duplicate: ID=94179, Label="ALLIED BLENDERS AND DISTILLERS PRIVATE LIMITED", Score=1.000
 
-Group 8:
+Group 11:
   Primary: ID=119489, Label="Bharti AXA General Insurance Ltd"
   Duplicate: ID=161316, Label="Bharti- Axa General Insurance Co. Ltd", Score=1.000
   Duplicate: ID=187883, Label="Bharti AXA General Insurance Company Ltd", Score=1.000
@@ -145,7 +131,7 @@ Group 8:
   Duplicate: ID=18340, Label="Bharti AXA General Insurance", Score=1.000
   Duplicate: ID=233989, Label=" Bharti AXA General Insurance", Score=1.000
 
-Group 9:
+Group 12:
   Primary: ID=353476, Label="National Insurance Company Ltd."
   Duplicate: ID=114554, Label="National Insurance Corporation", Score=1.000
   Duplicate: ID=191196, Label="National Insurance Company Ltd", Score=1.000
@@ -160,21 +146,7 @@ Group 9:
   Duplicate: ID=353475, Label="National Insurance Company \", Score=1.000
   Duplicate: ID=165711, Label="NATIONAL INSURANCE CO.", Score=1.000
 
-Group 10:
-  Primary: ID=155191, Label="Syntel Global Private Limited"
-  Duplicate: ID=181512, Label="SYNTEL Global Pvt. Ltd.", Score=1.000
-  Duplicate: ID=180027, Label="Syntel Inc Pvt Ltd", Score=1.000
-  Duplicate: ID=297193, Label="Syntel Pvt Ltd", Score=1.000
-  Duplicate: ID=65678, Label="Syntel Limited", Score=1.000
-  Duplicate: ID=111896, Label="Syntel, Inc.", Score=1.000
-  Duplicate: ID=119178, Label="Syntel Ltd.", Score=1.000
-  Duplicate: ID=78220, Label="Syntel Inc.", Score=1.000
-  Duplicate: ID=25170, Label="Syntel, Inc", Score=1.000
-  Duplicate: ID=207685, Label="Syntel Ltd", Score=1.000
-  Duplicate: ID=207281, Label="Syntel Inc", Score=1.000
-  Duplicate: ID=201091, Label="Syntel", Score=1.000
-
-Group 11:
+Group 13:
   Primary: ID=220681, Label="Dr.Lal pathlabs Pvt. Ltd"
   Duplicate: ID=222136, Label="Dr. Lal PathLabs Limited", Score=1.000
   Duplicate: ID=119630, Label="Dr. Lal PathLabs Ltd.", Score=1.000
@@ -188,7 +160,7 @@ Group 11:
   Duplicate: ID=88934, Label="DR LAL PATHLABS PVT LTD", Score=1.000
   Duplicate: ID=226400, Label=" Dr Lal PathLabs", Score=1.000
 
-Group 12:
+Group 14:
   Primary: ID=163175, Label="Bharti Axa life Insurance Co. Ltd"
   Duplicate: ID=130125, Label="Bharti AXA Life Insurance Company Ltd", Score=1.000
   Duplicate: ID=31151, Label="Bharti AXA life insurance co.ltd.", Score=1.000
@@ -201,32 +173,6 @@ Group 12:
   Duplicate: ID=61210, Label="Bharti AXA Life Insurance Co", Score=1.000
   Duplicate: ID=38339, Label="Bharti-Axa Life Insurance", Score=1.000
   Duplicate: ID=58278, Label="Bharti Axa Life Insurance", Score=1.000
-
-Group 13:
-  Primary: ID=88284, Label="Global DB Solutions Inc"
-  Duplicate: ID=47386, Label="DB International GmbH", Score=1.000
-  Duplicate: ID=49147, Label="DB Corp Limited", Score=1.000
-  Duplicate: ID=109740, Label="DB Corp Ltd.", Score=1.000
-  Duplicate: ID=130938, Label="DB Corp. Ltd", Score=1.000
-  Duplicate: ID=201005, Label="DB corp ltd", Score=1.000
-  Duplicate: ID=244132, Label="DB Corp.", Score=1.000
-  Duplicate: ID=76896, Label="DB Corp", Score=1.000
-  Duplicate: ID=277638, Label="DB Inc", Score=1.000
-  Duplicate: ID=262907, Label="DB International", Score=1.000
-  Duplicate: ID=265929, Label="DB Consulting", Score=1.000
-
-Group 14:
-  Primary: ID=3012, Label="Hinduja Global Solutions Inc.,"
-  Duplicate: ID=31927, Label="Hinduja Global Solutions Pvt. Ltd.,", Score=1.000
-  Duplicate: ID=98314, Label="Hinduja Global Solutions Inc.", Score=1.000
-  Duplicate: ID=123628, Label="Hinduja Global Solutions LTd.", Score=1.000
-  Duplicate: ID=190280, Label="Hinduja Global Solutions Inc", Score=1.000
-  Duplicate: ID=188250, Label="Hinduja Global Solutions Ltd", Score=1.000
-  Duplicate: ID=200904, Label="Hinduja Group Limited", Score=1.000
-  Duplicate: ID=129464, Label="Hinduja Global Solutions", Score=1.000
-  Duplicate: ID=73310, Label="Hinduja Global Solution", Score=1.000
-  Duplicate: ID=113322, Label="Hinduja Group", Score=1.000
-  Duplicate: ID=151640, Label="HINDUJA", Score=1.000
 
 Group 15:
   Primary: ID=190251, Label="The Oriental Insurance Company Limited"

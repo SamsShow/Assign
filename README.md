@@ -48,7 +48,7 @@ Each company `label` is cleaned for comparison:
 1. Lowercase + strip whitespace
 2. Replace `&` → `and`
 3. Remove all punctuation
-4. Strip **30+ legal suffixes** (Inc, LLC, Ltd, Corp, Pvt, Limited, GmbH, AG, SA, NV, LLP, Holdings, etc.)
+4. Strip **core legal suffixes only** (Inc, LLC, Ltd, Corp, Pvt, Limited, GmbH, AG, SA, NV, LLP, Holdings, etc.) — *not* "global", "solutions", "services", which are often part of company names (e.g. "Global DB Solutions" stays distinct from "DB Corp")
 5. Remove leading/trailing `the`
 6. Collapse whitespace
 
@@ -63,7 +63,7 @@ With ~346K company records, comparing every pair (~60 billion) is infeasible. We
 | Prefix block | First 3 chars of normalised name | Catches similar-starting names |
 | Token block | Alphabetically sorted non-stopword tokens | Catches reorderings & subsets |
 
-Two records become a candidate pair if they share **any** block key. Blocks exceeding 500 members are skipped (too generic). This reduces the search space to ~20.5M pairs.
+Two records become a candidate pair if they share **any** block key. Blocks exceeding 500 members are skipped (too generic). **Single-token blocks** (e.g. "db", "hinduja") are also skipped to reduce false positives. This reduces the search space to ~20.5M pairs.
 
 ### Step 3 — Similarity Scoring
 
@@ -192,6 +192,8 @@ The script generates `sample_output.txt` with 15 duplicate groups showing:
 - Primary record (ID + label)
 - All duplicates (ID + label + similarity score)
 - AI reasoning (when applicable)
+
+The report prioritises **AI-validated groups** (first 5) to demonstrate the full pipeline, followed by auto-confirmed groups.
 
 ## Project Structure
 

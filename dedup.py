@@ -84,6 +84,8 @@ log = logging.getLogger("dedup")
 # ────────────────────────────────────────────────────────────────────
 # Legal suffix patterns
 # ────────────────────────────────────────────────────────────────────
+# Core legal suffixes only — avoid stripping words that are often part of company names
+# (e.g. "Global DB Solutions" should stay "global db solutions", not become "db")
 LEGAL_SUFFIXES = [
     r"\bincorporated\b", r"\binc\b\.?", r"\bllc\b\.?", r"\bl\.l\.c\.?",
     r"\blimited\b", r"\bltd\b\.?", r"\bcorporation\b", r"\bcorp\b\.?",
@@ -91,7 +93,7 @@ LEGAL_SUFFIXES = [
     r"\bag\b", r"\bs\.?a\.?\b", r"\bn\.?v\.?\b", r"\bpvt\b\.?",
     r"\bprivate\b", r"\bl\.?p\.?\b", r"\bllp\b\.?", r"\bgroup\b",
     r"\bholdings?\b", r"\benterprise[s]?\b", r"\binternational\b",
-    r"\bglobal\b", r"\bservices?\b", r"\bsolutions?\b",
+    # Excluded: global, services, solutions — often core to company name
     r"\btechnolog(?:y|ies)\b", r"\bconsulting\b", r"\badvisors?\b",
     r"\bindustries\b",
 ]
@@ -130,6 +132,18 @@ def token_signature(normalized: str) -> str:
     """Sorted non-stopword tokens joined — used as a blocking key."""
     tokens = [t for t in normalized.split() if t not in STOPWORDS and len(t) > 1]
     return " ".join(sorted(tokens))
+
+
+def _is_generic_block_key(key: str) -> bool:
+    """Skip blocks that are too short/generic (e.g. single token 'db', 'hinduja')."""
+    if not key or len(key) < 4:
+        return True
+    tokens = key.split()
+    if len(tokens) == 1 and len(tokens[0]) <= 3:
+        return True  # e.g. "db"
+    if len(tokens) == 1:
+        return True  # single-token blocks cause false positives (e.g. "hinduja")
+    return False
 
 # ────────────────────────────────────────────────────────────────────
 # Similarity scoring
@@ -450,7 +464,7 @@ def main():
         if len(norm) >= 3:
             block_prefix[norm[:3]].add(rid)
         tsig = token_signature(norm)
-        if tsig:
+        if tsig and not _is_generic_block_key(tsig):
             block_token[tsig].add(rid)
 
     # Collect candidate pairs from blocks
@@ -811,17 +825,25 @@ def main():
     output_lines.append(f"Total groups found: {len(group_info)}")
     output_lines.append("=" * 70)
 
-    # Show first 15 groups sorted by quality (highest min-member-score first)
-    sorted_groups = sorted(
-        group_info,
-        key=lambda g: (
-            min((m["score"] for m in g["members"]), default=0),
-            len(g["members"]),
-        ),
-        reverse=True,
-    )
-    for idx, ginfo in enumerate(sorted_groups[:15], 1):
-        output_lines.append(f"\nGroup {idx}:")
+    # Split into AI-validated (has member with ai_decision) and auto-confirmed
+    def _quality_key(g):
+        return (min((m["score"] for m in g["members"]), default=0), len(g["members"]))
+
+    ai_validated = [g for g in group_info if any(m.get("ai_decision") for m in g["members"])]
+    auto_confirmed = [g for g in group_info if g not in ai_validated]
+
+    # Show AI-validated groups first (up to 5), then auto-confirmed (up to 10)
+    ai_sorted = sorted(ai_validated, key=_quality_key, reverse=True)
+    auto_sorted = sorted(auto_confirmed, key=_quality_key, reverse=True)
+    groups_to_show = ai_sorted[:5] + auto_sorted[:10]
+    if len(groups_to_show) < 15:
+        remaining = [g for g in group_info if g not in groups_to_show]
+        groups_to_show += sorted(remaining, key=_quality_key, reverse=True)[: 15 - len(groups_to_show)]
+
+    output_lines.append(f"\n(AI-validated groups: {len(ai_validated)} | Auto-confirmed: {len(auto_confirmed)})")
+    for idx, ginfo in enumerate(groups_to_show[:15], 1):
+        is_ai = ginfo in ai_validated
+        output_lines.append(f"\nGroup {idx}{' (AI-validated)' if is_ai else ''}:")
         if ginfo.get("new_record_label"):
             output_lines.append(
                 f"  Primary (NEW): Label=\"{ginfo['new_record_label']}\" "
