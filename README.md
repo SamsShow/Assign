@@ -19,7 +19,7 @@ DB_USER=intern
 DB_PASSWORD=hWduyv324@#uqsdgtv!
 DB_NAME=dedup_infollion
 OPENROUTER_API_KEY=<your-key>          # only needed if USE_OPENROUTER=True
-OPENROUTER_MODEL=meta-llama/llama-3.1-70b-instruct
+OPENROUTER_MODEL=meta-llama/llama-3.1-70b-instruct #your preference
 
 # 3. Run
 python3 dedup.py
