@@ -21,11 +21,14 @@ DB_NAME=dedup_infollion
 OPENROUTER_API_KEY=<your-key>          # only needed if USE_OPENROUTER=True
 OPENROUTER_MODEL=meta-llama/llama-3.1-70b-instruct #your preference
 
-# 3. Run
+# 3. Run deduplication
 python3 dedup.py
+
+# 4. (Optional) Build comparison table for easy search
+python3 build_dedup_results_table.py
 ```
 
-The script is **idempotent** — it resets all dedup fields and removes any previously-created `record_type = 'new'` records before each run.
+The dedup script is **idempotent** — it resets all dedup fields and removes any previously-created `record_type = 'new'` records before each run.
 
 ---
 
@@ -200,18 +203,48 @@ The script generates `sample_output.txt` with 15 duplicate groups showing:
 
 The report prioritises **AI-validated groups** (first 5) to demonstrate the full pipeline, followed by auto-confirmed groups.
 
+## Comparison Table (dedup_results)
+
+After running `dedup.py`, run `python3 build_dedup_results_table.py` to create a **dedup_results** table for easy search and comparison.
+
+| Column | Description |
+|--------|-------------|
+| `primary_id` | ID of the primary record for this group |
+| `primary_label` | Label of the primary |
+| `member_id` | This record's ID |
+| `member_label` | This record's label |
+| `member_role` | `primary`, `duplicate`, or `probable` |
+| `duplicate_score` | Similarity score (null for primary) |
+| `ai_decision` | AI reasoning (when applicable) |
+
+**Compare by keyword (e.g. "Tata"):**
+
+```sql
+-- Original: all records with keyword in label
+SELECT id, label, duplicate_status, duplicate_of 
+FROM masters 
+WHERE type = 'Company' AND label LIKE '%Tata%';
+
+-- Dedup view: same keyword, grouped by primary
+SELECT primary_id, primary_label, member_id, member_label, member_role, duplicate_score 
+FROM dedup_results 
+WHERE primary_label LIKE '%Tata%' OR member_label LIKE '%Tata%'
+ORDER BY primary_id, member_role;
+```
+
 ## Project Structure
 
 ```
 Assign/
-├── dedup.py           # Main deduplication script (end-to-end)
-├── requirements.txt   # Python dependencies
-├── .env               # DB + API credentials (gitignored)
+├── dedup.py                      # Main deduplication script (end-to-end)
+├── build_dedup_results_table.py  # Build comparison table (run after dedup)
+├── requirements.txt             # Python dependencies
+├── .env                         # DB + API credentials (gitignored)
 ├── .gitignore
-├── README.md          # This file
-├── sample_output.txt  # Generated duplicate group report
-├── explore_db.py      # Helper: initial DB exploration
-└── explore_db2.py     # Helper: schema inspection
+├── README.md                    # This file
+├── sample_output.txt            # Generated duplicate group report
+├── explore_db.py                # Helper: initial DB exploration
+└── explore_db2.py               # Helper: schema inspection
 ```
 
 ## Assumptions
