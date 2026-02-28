@@ -2,6 +2,11 @@
 
 End-to-end duplicate detection and classification for company records in the `masters` table of the `dedup_infollion` MySQL database.
 
+## Summary
+
+**Logic:** Normalize labels → block by prefix/token → score with RapidFuzz → auto-confirm ≥0.92, AI-validate 0.75–0.92 → Union-Find grouping → select primary → update DB.
+**Run:** `pip install -r requirements.txt` → create `.env` with DB credentials → `python3 dedup.py`
+
 ## Quick Start
 
 ```bash
